@@ -22,6 +22,12 @@ describe(cn, () => {
     expect(cn('base', { active: true, hidden: false })).toBe('base active')
   })
 
+  it('treats the action type size as a font size, not a text color', () => {
+    expect(cn('text-primary-foreground', 'text-action')).toBe(
+      'text-primary-foreground text-action',
+    )
+  })
+
   it('resolves conflicts across variant prefixes independently', () => {
     expect(cn('hover:bg-red-500', 'bg-blue-500')).toBe(
       'hover:bg-red-500 bg-blue-500',
